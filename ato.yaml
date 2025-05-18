@@ -1,0 +1,23 @@
+requires-atopile: "0.6.0"
+
+paths:
+  src: ./
+  layout: ./layouts
+  footprints: ./footprints
+
+builds:
+  default:
+    entry: main.ato:App
+
+# This metadata is only required for publishing
+# Uncomment it and fill out the fields to publish your package
+# package:
+#   identifier: # fill me!/wasp
+#   repository: # fill me!
+#   version: "0.1.0"  # recommended first version
+#   authors:
+#     - name: lucy moglia
+#       email: eigenlucy@proton.me
+#   summary: # fill me!
+#   license: GNU General Public License v3
+#   homepage: # fill me!
