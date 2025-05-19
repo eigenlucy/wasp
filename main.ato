@@ -1,16 +1,25 @@
-import ElectricPower
+import ElectricPower, USB2_0_IF
 from "pb03.ato" import PB03
 from "zts6216.ato" import ZTS6216
 from "atopile/usb-connectors/usb-connectors.ato" import USBCConn
 from "atopile/ti-bq2404x/bq2404x.ato" import BQ24045DSQR
 from "eigenlucy/ncp1529asnt1g/main.ato" import Regulator
+from "lsm6dsltr.ato" import LSM6DSL
+
+"""
+TO DO:
+# Define uC USB2 port, JTAG(if necessicary), I2C port, and audio codec
+# 
+"""
 
 module App:
-    power_bat = new ElectricPower
+    power_batt = new ElectricPower
     power_3V3 = new ElectricPower
-    power_bat.gnd ~ power_3V3.gnd
+    power_5V = new ElectricPower
+    power_batt.gnd ~ power_3V3.gnd
 
     usb = new USBCConn
+    usb.conn.VBUS ~ power_5V.vcc; usb.conn.GND ~ power_5V.gnd
 
     uc = new PB03
     uc.power ~ power_3V3
@@ -19,5 +28,12 @@ module App:
     mic.power ~ power_3V3
 
     bms = new BQ24045DSQR
+    power_batt ~ bms.power_batt
+    power_5V ~ bms.power_in
 
     ldo = new Regulator
+    ldo.Vin ~ power_batt
+    ldo.Vout ~ power_3V3
+
+    imu = new LSM6DSL
+    imu.power ~ power_3V3

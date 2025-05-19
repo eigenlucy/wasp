@@ -1,0 +1,28 @@
+import I2C, ElectricPower
+
+component LSM6DSL:
+    """STMicroelectronics_LSM6DSLTR component"""
+    lcsc_id = "C126672"
+    manufacturer = "STMicroelectronics"
+    mpn = "LSM6DSLTR"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811101102_STMicroelectronics-LSM6DSLTR_C126672.pdf"
+    designator_prefix = "U"
+
+    # pins
+    signal SDO ~ pin 1
+    signal SDX ~ pin 2
+    signal SCX ~ pin 3
+    signal INT1 ~ pin 4
+    signal VDDIO ~ pin 5
+    signal GND ~ pin 6
+    GND ~ pin 7
+    signal VCC ~ pin 8
+    signal INT2 ~ pin 9
+    signal CS ~ pin 12
+    signal SCL ~ pin 13
+    signal SDA ~ pin 14
+
+    power = new ElectricPower
+    power.vcc ~ VCC; power.gnd ~ GND
+    i2c = new I2C
+    i2c.sda ~ SDA; i2c.scl ~ SCL

@@ -1,4 +1,4 @@
-import ElectricPower
+import ElectricPower, USB2_0_IF
 
 component PB03:
     """Ai_Thinker_PB_03 component"""
@@ -29,8 +29,8 @@ component PB03:
     signal P34 ~ pin 27
     signal P33 ~ pin 28
     signal P23 ~ pin 29
-    signal P10 ~ pin 30
-    signal P9 ~ pin 31
+    signal P10 ~ pin 30 # USB2 RX
+    signal P9 ~ pin 31 # USB2 TX
     signal P20 ~ pin 32
     signal P15 ~ pin 33
     GND ~ pin 36
@@ -61,3 +61,7 @@ component PB03:
     GND ~ pin 61
 
     power = new ElectricPower
+    power.vcc ~ VCC; power.gnd ~ GND
+
+    usb2 = new USB2_0_IF
+    usb2.d.p ~ P9; usb2.d.n ~ P10
