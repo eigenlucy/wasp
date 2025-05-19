@@ -1,0 +1,34 @@
+import ElectricPower
+
+component PB03F:
+    """Ai_Thinker_PB_03F component"""
+    lcsc_id = "C2980027"
+    manufacturer = "Ai-Thinker"
+    mpn = "PB-03F"
+    datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2207071415_Ai-Thinker-PB-03F_C2980027.pdf"
+    designator_prefix = "COMM"
+
+    # pins
+    signal P15 ~ pin 1
+    signal P11 ~ pin 2
+    signal P31 ~ pin 3
+    signal P7 ~ pin 4
+    signal P32 ~ pin 5
+    signal P33 ~ pin 6
+    signal P14 ~ pin 7
+    signal VDD ~ pin 8
+    signal P16 ~ pin 9
+    signal P17 ~ pin 10
+    signal P18 ~ pin 11
+    signal P0 ~ pin 12
+    signal P34 ~ pin 13
+    signal GND ~ pin 15
+    signal P2 ~ pin 16
+    signal P3 ~ pin 17
+    signal P20 ~ pin 18
+    signal P23 ~ pin 19
+    signal P24 ~ pin 20
+    signal P10 ~ pin 21
+    signal P9 ~ pin 22
+
+    power = new ElectricPower

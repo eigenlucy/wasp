@@ -1,0 +1,63 @@
+import ElectricPower
+
+component PB03:
+    """Ai_Thinker_PB_03 component"""
+    lcsc_id = "C2980079"
+    manufacturer = "Ai-Thinker"
+    mpn = "PB-03"
+    datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2203041730_Ai-Thinker-PB-03_C2980079.pdf"
+    designator_prefix = "L"
+
+    # pins
+    signal GND ~ pin 1
+    GND ~ pin 2
+    signal VCC ~ pin 3
+    signal P24 ~ pin 5
+    signal P7 ~ pin 6
+    signal P31 ~ pin 8
+    GND ~ pin 11
+    signal P16 ~ pin 12
+    signal P17 ~ pin 13
+    GND ~ pin 14
+    signal P32 ~ pin 16
+    signal P11 ~ pin 18
+    signal P18 ~ pin 19
+    signal P2 ~ pin 22
+    signal P3 ~ pin 23
+    signal P14 ~ pin 24
+    signal P0 ~ pin 26
+    signal P34 ~ pin 27
+    signal P33 ~ pin 28
+    signal P23 ~ pin 29
+    signal P10 ~ pin 30
+    signal P9 ~ pin 31
+    signal P20 ~ pin 32
+    signal P15 ~ pin 33
+    GND ~ pin 36
+    GND ~ pin 37
+    GND ~ pin 38
+    GND ~ pin 39
+    GND ~ pin 40
+    GND ~ pin 41
+    GND ~ pin 42
+    GND ~ pin 43
+    GND ~ pin 44
+    GND ~ pin 45
+    GND ~ pin 46
+    GND ~ pin 47
+    GND ~ pin 48
+    GND ~ pin 49
+    GND ~ pin 50
+    GND ~ pin 51
+    GND ~ pin 52
+    GND ~ pin 53
+    GND ~ pin 54
+    GND ~ pin 55
+    GND ~ pin 56
+    GND ~ pin 57
+    GND ~ pin 58
+    GND ~ pin 59
+    GND ~ pin 60
+    GND ~ pin 61
+
+    power = new ElectricPower

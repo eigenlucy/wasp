@@ -1,0 +1,17 @@
+import ElectricPower
+
+component ZTS6216:
+    """ZILLTEK_ZTS6216 component"""
+    lcsc_id = "C481302"
+    manufacturer = "ZILLTEK"
+    mpn = "ZTS6216"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2003161906_ZILLTEK-ZTS6216_C481302.pdf"
+    designator_prefix = "MIC"
+
+    # pins
+    signal OUT ~ pin 1
+    signal GND ~ pin 2
+    GND ~ pin 3
+    signal VCC ~ pin 4
+    power = new ElectricPower
+    power.vcc ~ VCC; power.gnd ~ GND

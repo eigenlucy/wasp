@@ -1,0 +1,45 @@
+import ElectricPower
+
+component RC52810A:
+    """RF_Crazy___RC52810A component"""
+    lcsc_id = "C2886279"
+    manufacturer = "RF Crazy(智汉)"
+    mpn = "RC52810A"
+    designator_prefix = "U"
+
+    # pins
+    signal GND ~  pin 1
+    signal VCC ~ pin 2
+    signal RST ~ pin 3
+    signal P22 ~ pin 4
+    signal P23 ~ pin 5
+    signal P24 ~ pin 6
+    signal P25 ~ pin 7
+    signal P28 ~ pin 8
+    signal P29 ~ pin 9
+    signal P30 ~ pin 10
+    signal P26 ~ pin 11
+    signal P27 ~ pin 12
+    signal P02 ~ pin 13
+    signal P03 ~ pin 14
+    signal P04 ~ pin 15
+    signal P05 ~ pin 16
+    signal P06 ~ pin 17
+    signal P07 ~ pin 18
+    signal P08 ~ pin 19
+    signal P09 ~ pin 20
+    signal P10 ~ pin 21
+    signal P11 ~ pin 22
+    signal P12 ~ pin 23
+    signal P13 ~ pin 24
+    signal P14 ~ pin 25
+    signal P15 ~ pin 26
+    signal P16 ~ pin 27
+    signal SWDIO ~ pin 28
+    signal SWCLK ~ pin 29
+    signal P17 ~ pin 30
+    signal P18 ~ pin 31
+    signal P19 ~ pin 32
+    signal P20 ~ pin 33
+
+    power = new ElectricPower; power.vcc ~ VCC; power.gnd ~ GND

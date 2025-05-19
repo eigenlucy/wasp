@@ -1,4 +1,23 @@
-"""Brand new atopile project!"""
+import ElectricPower
+from "pb03.ato" import PB03
+from "zts6216.ato" import ZTS6216
+from "atopile/usb-connectors/usb-connectors.ato" import USBCConn
+from "atopile/ti-bq2404x/bq2404x.ato" import BQ24045DSQR
+from "eigenlucy/ncp1529asnt1g/main.ato" import Regulator
 
 module App:
-    pass
+    power_bat = new ElectricPower
+    power_3V3 = new ElectricPower
+    power_bat.gnd ~ power_3V3.gnd
+
+    usb = new USBCConn
+
+    uc = new PB03
+    uc.power ~ power_3V3
+
+    mic = new ZTS6216
+    mic.power ~ power_3V3
+
+    bms = new BQ24045DSQR
+
+    ldo = new Regulator

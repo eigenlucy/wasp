@@ -1,4 +1,4 @@
-requires-atopile: "0.6.0"
+requires-atopile: 0.6.0
 
 paths:
   src: ./
@@ -21,3 +21,13 @@ builds:
 #   summary: # fill me!
 #   license: GNU General Public License v3
 #   homepage: # fill me!
+dependencies:
+- type: registry
+  identifier: atopile/usb-connectors
+  release: 0.1.0
+- type: registry
+  identifier: atopile/ti-bq2404x
+  release: 0.1.0
+- type: registry
+  identifier: eigenlucy/ncp1529asnt1g
+  release: 0.1.2
