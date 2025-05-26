@@ -1,4 +1,4 @@
-import ElectricPower, USB2_0_IF
+import ElectricPower, ElectricLogic, USB2_0_IF, I2S
 
 component PB03:
     """Ai_Thinker_PB_03 component"""
@@ -65,3 +65,30 @@ component PB03:
 
     usb2 = new USB2_0_IF
     usb2.d.p ~ P9; usb2.d.n ~ P10
+
+    # I2C 0-1, I2S, UART, PWM 0-5, SPI 0-1, Quadrature Decoder, 1.28MHz clock and dmic_out
+    gpios = new ElectricLogic[19]
+    gpios[0].line ~ P31
+    gpios[1].line ~ P32
+    gpios[2].line ~ P33
+    gpios[3].line ~ P34
+    gpios[4].line ~ P0
+    gpios[5].line ~ P2
+    gpios[6].line ~ P3
+    gpios[7].line ~ P7
+    gpios[8].line ~ P9
+    gpios[9].line ~ P10
+    gpios[10].line ~ P11
+    gpios[11].line ~ P14
+    gpios[12].line ~ P15
+    gpios[13].line ~ P16
+    gpios[14].line ~ P17
+    gpios[15].line ~ P18
+    gpios[16].line ~ P20
+    gpios[17].line ~ P23
+    gpios[18].line ~ P24
+
+    i2s = new I2S
+    i2s.ws ~ gpios[13]
+    i2s.sck ~ gpios[1]
+    i2s.sd ~ gpios[14]

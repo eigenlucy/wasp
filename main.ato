@@ -6,6 +6,7 @@ from "atopile/ti-bq2404x/bq2404x.ato" import BQ24045DSQR
 from "eigenlucy/ncp1529asnt1g/main.ato" import Regulator
 from "lsm6dsltr.ato" import LSM6DSL
 from "smd1812p110tf.ato" import SMD1812P110TF
+from "mmict39020001.ato" import MMICT390200012
 
 """
 TO DO:
@@ -28,12 +29,14 @@ module App:
     uc.power ~ power_3V3
     uc.usb2 ~ usb.usb2
 
-    mic = new ZTS6216
+    mic = new MMICT390200012
     mic.power ~ power_3V3
+    mic.i2s ~ uc.i2s
+    Cmic = new Capacitor; Cmic.value = 100nF +/- 10%; Cmic.package = "C0402"
+    Cmic.power ~ mic.power
 
     bms = new BQ24045DSQR
-    ptc = new SMD1812P110TF # PTC resettable fuse for OCP
-    power_batt ~ ptc.p1; ptc.p2 ~ bms.power_batt
+    power_batt ~ bms.power_batt
     power_5V ~ bms.power_in
 
     ldo = new Regulator

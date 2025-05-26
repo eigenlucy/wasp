@@ -1,4 +1,4 @@
-import ElectricPower
+import ElectricPower, Capacitor
 
 component ZTS6216:
     """ZILLTEK_ZTS6216 component"""
@@ -9,9 +9,13 @@ component ZTS6216:
     designator_prefix = "MIC"
 
     # pins
-    signal OUT ~ pin 1
+    signal OUT1 ~ pin 1
     signal GND ~ pin 2
     GND ~ pin 3
     signal VCC ~ pin 4
     power = new ElectricPower
     power.vcc ~ VCC; power.gnd ~ GND
+    Cvin = new Capacitor; Cvin.value = 0.1uF +/- 5%; Cvin.package = "C0402"
+    Cvin.power ~ power
+    Cout = new Capacitor; Cout.value = 2.2uF +/- 5%; Cout.package = "C0402"
+    signal OUT ~ Cout.p1; Cout.p2 ~ OUT1

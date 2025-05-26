@@ -1,0 +1,25 @@
+import ElectricPower, ElectricSignal, Capacitor, I2S
+
+component MMICT390200012:
+    """TDK_InvenSense_MMICT390200012 component"""
+    lcsc_id = "C3171752"
+    manufacturer = "TDK InvenSense"
+    mpn = "MMICT390200012"
+    datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401291125_TDK-InvenSense-MMICT390200012_C3171752.pdf"
+    designator_prefix = "MIC"
+
+    # pins
+    signal CLK ~ pin 4
+    signal DATA ~ pin 1
+    signal GND ~ pin 3
+    signal SELECT ~ pin 2
+    signal VDD ~ pin 5
+
+    power = new ElectricPower
+    power.vcc ~ VDD; power.gnd ~ GND
+    
+    i2s = new I2S
+    i2s.ws ~ SELECT
+    i2s.sck ~ CLK
+    i2s.sd ~ DATA
+
