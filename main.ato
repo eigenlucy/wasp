@@ -1,15 +1,18 @@
-import ElectricPower, USB2_0_IF
+import ElectricPower, USB2_0_IF, Resistor, Capacitor
 from "pb03.ato" import PB03
 from "zts6216.ato" import ZTS6216
 from "atopile/usb-connectors/usb-connectors.ato" import USBCConn
 from "atopile/ti-bq2404x/bq2404x.ato" import BQ24045DSQR
 from "eigenlucy/ncp1529asnt1g/main.ato" import Regulator
 from "lsm6dsltr.ato" import LSM6DSL
+from "smd1812p110tf.ato" import SMD1812P110TF
 
 """
 TO DO:
-# Define uC USB2 port, JTAG(if necessicary), I2C port, and audio codec
-# 
+# Define uC JTAG(if necessicary), I2C port, and audio codec
+# Check ideal operating voltage and make sure regulator module is configured correctly
+# add dw01 module and configure shutdown modes
+# Figure out USB-C button?
 """
 
 module App:
@@ -23,15 +26,17 @@ module App:
 
     uc = new PB03
     uc.power ~ power_3V3
+    uc.usb2 ~ usb.usb2
 
     mic = new ZTS6216
     mic.power ~ power_3V3
 
     bms = new BQ24045DSQR
-    power_batt ~ bms.power_batt
+    ptc = new SMD1812P110TF # PTC resettable fuse for OCP
+    power_batt ~ ptc.p1; ptc.p2 ~ bms.power_batt
     power_5V ~ bms.power_in
 
     ldo = new Regulator
-    ldo.OUTPUT_VOLTAGE = 3.3V +/- 5%
+    ldo.OUTPUT_VOLTAGE = 3.3V +/- 5% # Maybe lower voltage?
     ldo.Vin ~ power_batt
     ldo.Vout ~ power_3V3

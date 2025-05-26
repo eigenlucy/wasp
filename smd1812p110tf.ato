@@ -1,0 +1,11 @@
+component SMD1812P110TF:
+    """PTTCPolytronics_Tech_SMD1812P110TF component"""
+    lcsc_id = "C3102"
+    manufacturer = "PTTC(Polytronics Tech)"
+    mpn = "SMD1812P110TF"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_PTTC-Polytronics-Tech-SMD1812P110TF_C3102.pdf"
+    designator_prefix = "F"
+
+    # pins
+    signal p2 ~ pin 2
+    signal p1 ~ pin 1
