@@ -7,20 +7,21 @@ paths:
 
 builds:
   default:
-    entry: main.ato:App
+    entry: main.ato:Wasp
+  lsm6dsl:
+    entry: lsm6dsltr.ato:LSM6DSL
 
-# This metadata is only required for publishing
-# Uncomment it and fill out the fields to publish your package
-# package:
-#   identifier: # fill me!/wasp
-#   repository: # fill me!
-#   version: "0.1.0"  # recommended first version
-#   authors:
-#     - name: lucy moglia
-#       email: eigenlucy@proton.me
-#   summary: # fill me!
-#   license: GNU General Public License v3
-#   homepage: # fill me!
+package:
+  identifier: eigenlucy/wasp
+  repository: https://github.com/eigenlucy/wasp
+  version: "0.1.0"  # recommended first version
+  authors:
+    - name: lucy moglia
+      email: eigenlucy@proton.me
+  summary: WASP, Wearable AI Synthesis Platform
+  license: GNU General Public License v3
+  homepage: https://eigenlucy.github.io/projects/wasp/
+
 dependencies:
 - type: registry
   identifier: atopile/usb-connectors

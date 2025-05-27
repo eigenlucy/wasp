@@ -1,4 +1,4 @@
-import ElectricPower, ElectricLogic, USB2_0_IF, I2S
+import ElectricPower, ElectricLogic, USB2_0_IF, I2S, I2C
 
 component PB03:
     """Ai_Thinker_PB_03 component"""
@@ -90,5 +90,9 @@ component PB03:
 
     i2s = new I2S
     i2s.ws ~ gpios[13]
-    i2s.sck ~ gpios[2]
+    i2s.sck ~ gpios[1]
     i2s.sd ~ gpios[14]
+
+    i2c = new I2C
+    i2c.sda ~ gpios[16]
+    i2c.scl ~ gpios[12]

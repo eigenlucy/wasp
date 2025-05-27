@@ -16,7 +16,7 @@ TO DO:
 # Figure out USB-C button?
 """
 
-module App:
+module Wasp:
     power_batt = new ElectricPower
     power_3V3 = new ElectricPower
     power_5V = new ElectricPower
@@ -28,12 +28,20 @@ module App:
     uc = new PB03
     uc.power ~ power_3V3
     uc.usb2 ~ usb.usb2
+    C1 = new Capacitor; C1.value = 100nF +/- 10%; C1.package = "C0402"
+    C1.power ~ power_3V3
+    C2 = new Capacitor; C2.value = 2.2uF +/- 10%; C2.package = "C0603"
+    C2.power ~ power_3V3
 
     mic = new MMICT390200012
     mic.power ~ power_3V3
     mic.i2s ~ uc.i2s
     Cmic = new Capacitor; Cmic.value = 100nF +/- 10%; Cmic.package = "C0402"
     Cmic.power ~ mic.power
+
+    imu = new LSM6DSL
+    imu.power ~ power_3V3
+    imu.i2c ~ uc.i2c
 
     bms = new BQ24045DSQR
     power_batt ~ bms.power_batt

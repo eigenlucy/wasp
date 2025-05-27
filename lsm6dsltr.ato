@@ -1,6 +1,28 @@
-import I2C, ElectricPower
+import I2C, ElectricPower, ElectricLogic, Capacitor
 
-component LSM6DSL:
+module LSM6DSL:
+    ic = new _LSM6DSL
+    power = new ElectricPower
+    power.vcc ~ ic.VCC; power.vcc ~ ic.VDDIO; power.gnd ~ ic.GND
+    i2c = new I2C
+    i2c.sda ~ ic.SDA; i2c.scl ~ ic.SCL
+
+    ## Mode 1 select (no slave I2C periphrials)
+    ic.SDX ~ ic.GND; ic.SCX ~ ic.GND
+
+    # CS = HIGH :: SPI disabled, I2C enabled
+    # CS = LOW :: SPI enabled, I2C disabled
+    ic.CS ~ power.vcc
+    ic.SDO ~ power.gnd # set I2C addr
+
+    ints = new ElectricLogic[2]
+    ints[0] ~ ic.INT1
+    ints[1] ~ ic.INT2
+
+    C1 = new Capacitor; C1.value = 100nF +/- 10%; C1.package = "C0402"
+    C1.power ~ power
+
+component _LSM6DSL:
     """STMicroelectronics_LSM6DSLTR component"""
     lcsc_id = "C126672"
     manufacturer = "STMicroelectronics"
@@ -9,20 +31,15 @@ component LSM6DSL:
     designator_prefix = "U"
 
     # pins
-    signal SDO ~ pin 1
+    signal SDO ~ pin 1 # 4wire SPI serial data out // I2C LSB Addr set
     signal SDX ~ pin 2
     signal SCX ~ pin 3
-    signal INT1 ~ pin 4
+    signal INT1 ~ pin 4 # Programmable interrupt 1
     signal VDDIO ~ pin 5
     signal GND ~ pin 6
     GND ~ pin 7
     signal VCC ~ pin 8
-    signal INT2 ~ pin 9
+    signal INT2 ~ pin 9 # Programmable interrupt 2
     signal CS ~ pin 12
     signal SCL ~ pin 13
     signal SDA ~ pin 14
-
-    power = new ElectricPower
-    power.vcc ~ VCC; power.gnd ~ GND
-    i2c = new I2C
-    i2c.sda ~ SDA; i2c.scl ~ SCL
