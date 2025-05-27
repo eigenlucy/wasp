@@ -90,5 +90,5 @@ component PB03:
 
     i2s = new I2S
     i2s.ws ~ gpios[13]
-    i2s.sck ~ gpios[1]
+    i2s.sck ~ gpios[2]
     i2s.sd ~ gpios[14]

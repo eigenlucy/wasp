@@ -43,3 +43,4 @@ module App:
     ldo.OUTPUT_VOLTAGE = 3.3V +/- 5% # Maybe lower voltage?
     ldo.Vin ~ power_batt
     ldo.Vout ~ power_3V3
+    ldo.ic.EN ~ uc.gpios[0]
