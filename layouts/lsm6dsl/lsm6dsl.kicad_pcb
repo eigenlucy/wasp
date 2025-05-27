@@ -94,7 +94,7 @@
     (net 5 "SCL")
     (net 6 "ic.footprint.pins[1].net-net")
     (net 7 "gnd")
-    (net 8 "VDDIO")
+    (net 8 "VCC")
     (footprint "atopile:LGA-14_L3.0-W2.5-P0.50-TL-eab322"
         (layer "F.Cu")
         (uuid "58246879-615b-4acf-a40e-3a7e4642524b")
@@ -389,7 +389,7 @@
             (at -0.5 1.01 0)
             (size 0.28 0.68)
             (layers "F.Cu" "F.Mask" "F.Paste")
-            (net 8 "VDDIO")
+            (net 8 "VCC")
             (uuid "4fa93266-54a5-4385-8e61-f147bd4b3d04")
         )
         (pad "6" smd rect
@@ -410,7 +410,7 @@
             (at 1.26 0.75 0)
             (size 0.68 0.28)
             (layers "F.Cu" "F.Mask" "F.Paste")
-            (net 8 "VDDIO")
+            (net 8 "VCC")
             (uuid "4a74c640-ed9f-4764-8245-423f0ec858fd")
         )
         (pad "9" smd rect
@@ -438,7 +438,7 @@
             (at 0.5 -1.01 0)
             (size 0.28 0.68)
             (layers "F.Cu" "F.Mask" "F.Paste")
-            (net 8 "VDDIO")
+            (net 8 "VCC")
             (uuid "08abf7a1-18de-4236-94e4-b371fc3481f3")
         )
         (pad "13" smd rect
@@ -761,7 +761,7 @@
             (at -0.55 0 180)
             (size 0.79 0.54)
             (layers "F.Cu" "F.Mask" "F.Paste")
-            (net 8 "VDDIO")
+            (net 8 "VCC")
             (uuid "3d919236-6217-449d-93aa-a3728b5723da")
         )
         (pad "2" smd rect

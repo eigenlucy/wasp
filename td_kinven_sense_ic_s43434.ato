@@ -1,0 +1,15 @@
+component TDK_InvenSense_ICS_43434:
+    """TDK_InvenSense_ICS_43434 component"""
+    lcsc_id = "C5656610"
+    manufacturer = "TDK InvenSense"
+    mpn = "ICS-43434"
+    datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2312010321_TDK-InvenSense-ICS-43434_C5656610.pdf"
+    designator_prefix = "U"
+
+    # pins
+    signal GND ~ pin 3
+    signal LR ~ pin 2
+    signal SCK ~ pin 4
+    signal SD ~ pin 6
+    signal VDD ~ pin 5
+    signal WS ~ pin 1
