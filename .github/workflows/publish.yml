@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-http://127.0.0.1:4002/projects/wasp/      - uses: atopile/publish-package@main
+      - uses: atopile/publish-package@main
