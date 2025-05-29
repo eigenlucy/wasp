@@ -51,4 +51,6 @@ module Wasp:
     ldo.OUTPUT_VOLTAGE = 3.3V +/- 5% # Maybe lower voltage?
     ldo.Vin ~ power_batt
     ldo.Vout ~ power_3V3
-    ldo.ic.EN ~ uc.gpios[0]
+    ldo.ic.EN ~ uc.gpios[5]
+    ldo_pullup = new Resistor; ldo_pullup.value = 100kohm; ldo_pullup.package = "R0201"
+    ldo_pullup.p1 ~ ldo.ic.EN; ldo_pullup.p2 ~ power_3V3.vcc
